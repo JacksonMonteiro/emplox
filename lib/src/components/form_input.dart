@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class FormInput extends StatelessWidget {
-  const FormInput({Key? key, required this.placeholder}) : super(key: key);
+  const FormInput(
+      {Key? key, required this.placeholder, required this.controller})
+      : super(key: key);
 
   final String placeholder;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
             hintText: placeholder,
             enabledBorder: UnderlineInputBorder(

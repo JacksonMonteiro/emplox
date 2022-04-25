@@ -1,6 +1,21 @@
-class Routes {
-  String _baseUrl = 'http://localhost:3000/';
+import 'package:dio/dio.dart';
 
-  String? get baseUrl => _baseUrl;
-  set baseUrl(String? url) => _baseUrl = url!;
+class Routes {
+  final String baseUrl = 'http://192.168.124.107:3000/';
+  final Dio dio = Dio();
+
+  Future login(String username, String password) async {
+    String route = baseUrl + 'admin/login';
+
+    try {
+      var response = await dio.post(route,
+          data: {"username": username, "password": password},
+          options: Options(
+            contentType: Headers.jsonContentType,
+          ));
+      return response.data;
+    } catch (e) {
+      print(e);
+    }
+  }
 }

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 class StandartButton extends StatelessWidget {
-  const StandartButton({Key? key, required this.route}) : super(key: key);
-  final String route;
+  const StandartButton({Key? key, required this.action}) : super(key: key);
+  final VoidCallback action;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.of(context).pushNamed(route);
-      },
+      onPressed: action,
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Padding(
