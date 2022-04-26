@@ -32,4 +32,14 @@ class Routes {
       throw Exception("Erro ao cadastrar administrador: $e");
     }
   }
+
+  Future getEmployees() async {
+    String route = baseUrl + 'employee';
+    try {
+      var response = await dio.get(route);
+      return response.data;
+    } catch (e) {
+      throw Exception("Erro ao consultar funcionários existentes: $e");
+    }
+  }
 }
