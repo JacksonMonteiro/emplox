@@ -26,7 +26,7 @@ class _MainViewScreenState extends State<MainViewScreen>
         padding: const EdgeInsets.only(bottom: 32, right: 16),
         child: FloatingActionButton(
           onPressed: () {
-            // Add your onPressed code here!
+            Navigator.of(context).pushNamed('/employee_register');
           },
           backgroundColor: Color(0xFF07B0E5),
           child: Icon(Icons.add),

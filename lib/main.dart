@@ -1,5 +1,6 @@
 import 'package:emplox/src/views/admin_login_screen.dart';
 import 'package:emplox/src/views/admin_register_screen.dart';
+import 'package:emplox/src/views/create_employee_screen.dart';
 import 'package:emplox/src/views/login_screen_view.dart';
 import 'package:emplox/src/views/main_view.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/admin_register': (context) => AdminRegisterScreen(),
         '/admin_login': (context) => AdminLoginScreen(),
         '/main': (context) => MainViewScreen(),
+        '/employee_register': (context) => CreateEmployeeScreen(),
       },
     );
   }

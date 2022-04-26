@@ -7,7 +7,7 @@ class ReturnButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        Navigator.of(context).pushReplacementNamed('/');
+        Navigator.of(context).pop();
       },
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(

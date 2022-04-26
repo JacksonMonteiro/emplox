@@ -11,4 +11,9 @@ class EmployeeRepository {
     final list = response['employees'] as List;
     return list.map((json) => EmployeeModel.fromJson(json)).toList();
   }
+
+  Future fetchEmployeeCreation(String name, String role) async {
+    final response = await routes.employeeCreation(name, role);
+    return response['error'];
+  }
 }

@@ -8,10 +8,8 @@ abstract class MainScreenContract {
 }
 
 class MainScreenPresenter {
-  bool isLoading = false;
-
   final MainScreenContract contract;
-  final state = ValueNotifier<MainState>(MainState.start);
+  final state = ValueNotifier<MainState>(MainState.error);
 
   List<EmployeeModel> employees = [];
   EmployeeRepository _repository = EmployeeRepository();
@@ -20,12 +18,9 @@ class MainScreenPresenter {
   MainScreenPresenter(this.contract);
 
   start() async {
-    state.value = MainState.loading;
-    isLoading = true;
     try {
       employees = await _repository.fetchEmployees();
       if (employees.length > 0) {
-        isLoading = false;
         state.value = MainState.success;
       }
     } catch (e) {
@@ -43,4 +38,4 @@ class MainScreenPresenter {
   }
 }
 
-enum MainState { start, success, loading, error }
+enum MainState { success, error }
