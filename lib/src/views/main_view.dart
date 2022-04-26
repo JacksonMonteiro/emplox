@@ -40,6 +40,7 @@ class _MainViewScreenState extends State<MainViewScreen>
   void initState() {
     super.initState();
     presenter = MainScreenPresenter(this);
+
     presenter.start();
   }
 
@@ -148,10 +149,15 @@ class _MainViewScreenState extends State<MainViewScreen>
                                                 color: Colors.black),
                                           )
                                         ]),
-                                    Icon(
-                                      Icons.delete_rounded,
-                                      color: Colors.red,
-                                      size: 48,
+                                    GestureDetector(
+                                      onTap: () {
+                                        presenter.delete(employee.id);
+                                      },
+                                      child: Icon(
+                                        Icons.delete_rounded,
+                                        color: Colors.red,
+                                        size: 48,
+                                      ),
                                     )
                                   ],
                                 )
@@ -167,5 +173,16 @@ class _MainViewScreenState extends State<MainViewScreen>
         ),
       ),
     );
+  }
+
+  @override
+  isLoadingChange() {
+    setState(() {});
+  }
+
+  @override
+  loading() {
+    return Center(
+        child: presenter.isLoading ? CircularProgressIndicator() : Container());
   }
 }

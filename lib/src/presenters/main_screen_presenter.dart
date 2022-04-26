@@ -5,11 +5,17 @@ import 'package:flutter/cupertino.dart';
 abstract class MainScreenContract {
   success();
   error();
+  isLoadingChange();
+  loading();
 }
 
 class MainScreenPresenter {
+  bool result = false;
+  bool isLoading = false;
+
   final MainScreenContract contract;
   final state = ValueNotifier<MainState>(MainState.error);
+  final deleteState = ValueNotifier<EDeleteState>(EDeleteState.start);
 
   List<EmployeeModel> employees = [];
   EmployeeRepository _repository = EmployeeRepository();
@@ -28,14 +34,33 @@ class MainScreenPresenter {
     }
   }
 
+  delete(int? id) async {
+    state.value = MainState.loading;
+    isLoading = true;
+    contract.isLoadingChange();
+    try {
+      result = await _repository.fetchDeleteEmployee(id);
+      if (result == false) {
+        isLoading = false;
+        contract.isLoadingChange();
+        start();
+      }
+    } catch (e) {
+      deleteState.value = EDeleteState.error;
+    }
+  }
+
   stateManagement(MainState state) {
     switch (state) {
       case MainState.success:
         return contract.success();
+      case MainState.loading:
+        return contract.loading();
       case MainState.error:
         return contract.error();
     }
   }
 }
 
-enum MainState { success, error }
+enum MainState { success, loading, error }
+enum EDeleteState { start, error }

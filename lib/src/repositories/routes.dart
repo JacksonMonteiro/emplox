@@ -70,4 +70,17 @@ class Routes {
       throw Exception("Erro ao atualizar funcionário: $e");
     }
   }
+
+  Future employeeDelete(int? id) async {
+    String route = baseUrl + 'employee/$id';
+    try {
+      var response = await dio.delete(route,
+          options: Options(
+            contentType: Headers.jsonContentType,
+          ));
+      return response.data;
+    } catch (e) {
+      throw Exception("Erro ao deletar funcionário: $e");
+    }
+  }
 }

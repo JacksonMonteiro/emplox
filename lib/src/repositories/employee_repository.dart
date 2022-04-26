@@ -21,4 +21,9 @@ class EmployeeRepository {
     final response = await routes.employeeUpdate(name, role, id);
     return response['error'];
   }
+
+  Future fetchDeleteEmployee(int? id) async {
+    final response = await routes.employeeDelete(id);
+    return response['error'];
+  }
 }
