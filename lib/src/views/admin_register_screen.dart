@@ -63,6 +63,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                 child: FormInput(
                   placeholder: 'Nome de usuário',
                   controller: presenter.usernameField,
+                  isPwd: false,
                 ),
               ),
               Padding(
@@ -70,6 +71,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                 child: FormInput(
                   placeholder: 'E-mail',
                   controller: presenter.emailField,
+                  isPwd: false,
                 ),
               ),
               Padding(
@@ -77,6 +79,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                 child: FormInput(
                   placeholder: 'Senha',
                   controller: presenter.passwordField,
+                  isPwd: false,
                 ),
               ),
               StandartButton(

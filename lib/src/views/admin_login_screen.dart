@@ -61,6 +61,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
                 child: FormInput(
                   placeholder: 'Nome de usuário',
                   controller: presenter.usernameField,
+                  isPwd: false,
                 ),
               ),
               Padding(
@@ -68,6 +69,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
                 child: FormInput(
                   placeholder: 'Senha',
                   controller: presenter.passwordField,
+                  isPwd: true,
                 ),
               ),
               StandartButton(

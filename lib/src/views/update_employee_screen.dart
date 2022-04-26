@@ -68,6 +68,7 @@ class updateEmployeeScreenState extends State<updateEmployeeScreen>
                   child: FormInput(
                     placeholder: 'Nome do funcionário',
                     controller: presenter.nameField,
+                    isPwd: false,
                   ),
                 ),
                 Padding(
@@ -75,6 +76,7 @@ class updateEmployeeScreenState extends State<updateEmployeeScreen>
                   child: FormInput(
                     placeholder: 'Função do funcionário',
                     controller: presenter.roleField,
+                    isPwd: false,
                   ),
                 ),
                 StandartButton(

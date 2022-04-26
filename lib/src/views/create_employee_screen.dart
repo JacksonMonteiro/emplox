@@ -59,6 +59,7 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                 child: FormInput(
                   placeholder: 'Nome do funcionário',
                   controller: presenter.nameField,
+                  isPwd: false,
                 ),
               ),
               Padding(
@@ -66,6 +67,7 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                 child: FormInput(
                   placeholder: 'Função do funcionário',
                   controller: presenter.roleField,
+                  isPwd: false,
                 ),
               ),
               StandartButton(

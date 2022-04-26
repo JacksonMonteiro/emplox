@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class FormInput extends StatelessWidget {
   const FormInput(
-      {Key? key, required this.placeholder, required this.controller})
+      {Key? key,
+      required this.placeholder,
+      required this.controller,
+      required this.isPwd})
       : super(key: key);
 
   final String placeholder;
   final TextEditingController controller;
+  final bool isPwd;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +18,7 @@ class FormInput extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: TextField(
         controller: controller,
+        obscureText: isPwd,
         decoration: InputDecoration(
             hintText: placeholder,
             enabledBorder: UnderlineInputBorder(
