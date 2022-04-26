@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class StandartButton extends StatelessWidget {
-  const StandartButton({Key? key, required this.action}) : super(key: key);
+  const StandartButton({Key? key, required this.action, required this.text})
+      : super(key: key);
+  final String text;
   final VoidCallback action;
 
   @override
@@ -12,7 +14,7 @@ class StandartButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.only(top: 21, bottom: 21),
-          child: Text('Entrar',
+          child: Text(text,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.black)),
         ),

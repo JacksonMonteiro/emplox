@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(21),
                         child: Text(
                           'Registre-se',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16, color: Colors.black),
                         ),
                       )),
                   ElevatedButton(

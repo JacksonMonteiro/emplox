@@ -12,4 +12,10 @@ main() {
       print('Deu errado');
     }
   });
+
+  test('Must have print a Admin Register Object', () async {
+    final json = await repository.fetchAdminCreation(
+        'teste', 'teste@emplox.com', '1234');
+    print(json);
+  });
 }

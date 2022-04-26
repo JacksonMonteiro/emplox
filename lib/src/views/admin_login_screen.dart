@@ -36,44 +36,49 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
 
   @override
   start() {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: Padding(
-        padding: EdgeInsets.only(top: 102, bottom: 126, left: 40, right: 40),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 37),
-              child: Row(
-                children: [
-                  ReturnButton(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24),
-                    child: Text('EMPLOX', style: TextStyle(fontSize: 54)),
-                  ),
-                ],
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Padding(
+          padding: EdgeInsets.only(top: 102, bottom: 126, left: 40, right: 40),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 37),
+                child: Row(
+                  children: [
+                    ReturnButton(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: Text('EMPLOX', style: TextStyle(fontSize: 54)),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 22),
-              child: FormInput(
-                placeholder: 'Nome de usuário',
-                controller: presenter.usernameField,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 22),
+                child: FormInput(
+                  placeholder: 'Nome de usuário',
+                  controller: presenter.usernameField,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 54),
-              child: FormInput(
-                placeholder: 'Senha',
-                controller: presenter.passwordField,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 54),
+                child: FormInput(
+                  placeholder: 'Senha',
+                  controller: presenter.passwordField,
+                ),
               ),
-            ),
-            StandartButton(action: () {
-              presenter.login(
-                  presenter.usernameField.text, presenter.passwordField.text);
-            }),
-          ],
+              StandartButton(
+                action: () {
+                  presenter.login(presenter.usernameField.text,
+                      presenter.passwordField.text);
+                },
+                text: 'Entrar',
+              ),
+            ],
+          ),
         ),
       ),
     );

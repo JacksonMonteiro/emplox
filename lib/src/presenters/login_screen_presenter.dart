@@ -14,9 +14,9 @@ class LoginScreenPresenter {
   bool isLoading = false;
 
   AdminRepository _repository = AdminRepository();
-  late final LoginScreenContract contract;
 
   final state = ValueNotifier<LoginState>(LoginState.start);
+  late final LoginScreenContract contract;
 
   TextEditingController usernameField = TextEditingController();
   TextEditingController passwordField = TextEditingController();
@@ -28,7 +28,7 @@ class LoginScreenPresenter {
     isLoading = true;
     contract.isLoadingChange();
     try {
-      result = await _repository.fetchAdminLogin(usr, pwd);
+      result = await _repository.fetchAdminLogin(usr.trim(), pwd.trim());
       if (result) {
         isLoading = false;
         contract.isLoadingChange();

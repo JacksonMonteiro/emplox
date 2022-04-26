@@ -1,4 +1,5 @@
 import 'package:emplox/src/repositories/admin_repository.dart';
+import 'package:emplox/src/views/admin_register_screen.dart';
 import 'package:flutter/material.dart';
 
 abstract class AdminRegisterContract {
@@ -11,11 +12,12 @@ abstract class AdminRegisterContract {
 
 class AdminRegisterPresenter {
   // Final and Late variables
-  late final contract;
   final state = ValueNotifier<RegisterState>(RegisterState.start);
+  late final AdminRegisterContract contract;
 
   // Declared Variables
-  bool result = false, isLoading = false;
+  bool result = false;
+  bool isLoading = false;
 
   // Instances
   AdminRepository _repository = AdminRepository();
@@ -30,8 +32,9 @@ class AdminRegisterPresenter {
     isLoading = true;
     contract.isLoadingChange();
     try {
-      result = await _repository.fetchAdminCreation(u, e, p);
-      if (result) {
+      result =
+          await _repository.fetchAdminCreation(u.trim(), e.trim(), p.trim());
+      if (result == false) {
         isLoading = false;
         contract.isLoadingChange();
         contract.success();
