@@ -15,7 +15,21 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      print(e);
+      throw Exception("Erro ao realizar login: $e");
+    }
+  }
+
+  Future adminCreation(String username, String email, String password) async {
+    String route = baseUrl + 'admin';
+    try {
+      var response = await dio.post(route,
+          data: {"username": username, "email": email, "password": password},
+          options: Options(
+            contentType: Headers.jsonContentType,
+          ));
+      return response.data;
+    } catch (e) {
+      throw Exception("Erro ao cadastrar administrador: $e");
     }
   }
 }
