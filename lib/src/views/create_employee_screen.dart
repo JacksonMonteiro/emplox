@@ -43,19 +43,17 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
         child: Padding(
           padding: EdgeInsets.only(top: 102, bottom: 126, left: 40, right: 40),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 37),
-                child: Row(
-                  children: [
-                    ReturnButton(),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24),
-                      child: Text('EMPLOX', style: TextStyle(fontSize: 54)),
-                    ),
-                  ],
-                ),
+                child: ReturnButton(),
               ),
+              Text('Cadastrar funcionário',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Color(0xFF07B0E5),
+                      fontWeight: FontWeight.w500)),
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(

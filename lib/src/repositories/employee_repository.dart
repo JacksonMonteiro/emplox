@@ -16,4 +16,9 @@ class EmployeeRepository {
     final response = await routes.employeeCreation(name, role);
     return response['error'];
   }
+
+  Future fetchUpdateEmployee(String name, String role, int? id) async {
+    final response = await routes.employeeUpdate(name, role, id);
+    return response['error'];
+  }
 }

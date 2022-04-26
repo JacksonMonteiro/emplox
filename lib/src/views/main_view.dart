@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:emplox/src/presenters/main_screen_presenter.dart';
+import 'package:emplox/src/views/update_employee_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainViewScreen extends StatefulWidget {
@@ -101,51 +102,61 @@ class _MainViewScreenState extends State<MainViewScreen>
                   itemBuilder: (context, index) {
                     var employee = presenter.employees[index];
 
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Container(
-                        width: 300,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                          color: Color(0xFFEFEFEF),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 24, right: 24),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          employee.name.toString(),
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 22,
-                                              color: Color(0xFF07B0E5)),
-                                        ),
-                                        Text(
-                                          employee.role.toString(),
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 16,
-                                              color: Colors.black),
-                                        )
-                                      ]),
-                                  Icon(
-                                    Icons.delete_rounded,
-                                    color: Colors.red,
-                                    size: 48,
-                                  )
-                                ],
-                              )
-                            ],
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => updateEmployeeScreen(
+                                  employeeId: employee.id)),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: Container(
+                          width: 300,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            color: Color(0xFFEFEFEF),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 24, right: 24),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            employee.name.toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 22,
+                                                color: Color(0xFF07B0E5)),
+                                          ),
+                                          Text(
+                                            employee.role.toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.normal,
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          )
+                                        ]),
+                                    Icon(
+                                      Icons.delete_rounded,
+                                      color: Colors.red,
+                                      size: 48,
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
