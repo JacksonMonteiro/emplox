@@ -16,6 +16,7 @@ class CreateEmployeeScreen extends StatefulWidget {
 class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
     implements EmployeeRegisterContract {
   late EmployeeRegisterPresenter presenter;
+  bool validate = true;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,9 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                   placeholder: 'Nome do funcionário',
                   controller: presenter.nameField,
                   isPwd: false,
+                  errorTxt: validate
+                      ? null
+                      : 'Nome do funcionário não pode estar vazio',
                 ),
               ),
               Padding(
@@ -68,12 +72,22 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                   placeholder: 'Função do funcionário',
                   controller: presenter.roleField,
                   isPwd: false,
+                  errorTxt: validate
+                      ? null
+                      : 'Função do funcionário não pode estar vazia',
                 ),
               ),
               StandartButton(
                 action: () {
-                  presenter.register(
-                      presenter.nameField.text, presenter.roleField.text);
+                  if (presenter.nameField.text.isEmpty) {
+                    validate = false;
+                  } else if (presenter.roleField.text.isEmpty) {
+                    validate = false;
+                  } else {
+                    validate = true;
+                    presenter.register(
+                        presenter.nameField.text, presenter.roleField.text);
+                  }
                 },
                 text: 'Cadastrar Funcionário',
               ),

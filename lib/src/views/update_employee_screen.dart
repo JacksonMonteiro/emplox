@@ -9,20 +9,29 @@ import '../presenters/employee_update_presenter.dart';
 
 class updateEmployeeScreen extends StatefulWidget {
   final int? employeeId;
-  const updateEmployeeScreen({Key? key, required this.employeeId})
+  final String? employeeName;
+  final String? employeeRole;
+
+  const updateEmployeeScreen(
+      {Key? key, this.employeeId, this.employeeName, this.employeeRole})
       : super(key: key);
 
   @override
   State<updateEmployeeScreen> createState() =>
-      updateEmployeeScreenState(employeeId);
+      updateEmployeeScreenState(employeeId, employeeName, employeeRole);
 }
 
 class updateEmployeeScreenState extends State<updateEmployeeScreen>
     implements EmployeeUpdateContract {
   late EmployeeUpdatePresenter presenter;
-  final int? id;
 
-  updateEmployeeScreenState(this.id);
+  final int? id;
+  final String? name;
+  final String? role;
+
+  bool validate = true;
+
+  updateEmployeeScreenState(this.id, this.name, this.role);
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +78,9 @@ class updateEmployeeScreenState extends State<updateEmployeeScreen>
                     placeholder: 'Nome do funcionário',
                     controller: presenter.nameField,
                     isPwd: false,
+                    errorTxt: validate
+                        ? null
+                        : 'Nome do funcionário não pode estar vazio',
                   ),
                 ),
                 Padding(
@@ -77,12 +89,22 @@ class updateEmployeeScreenState extends State<updateEmployeeScreen>
                     placeholder: 'Função do funcionário',
                     controller: presenter.roleField,
                     isPwd: false,
+                    errorTxt: validate
+                        ? null
+                        : 'Função do funcionário não pode estar vazia',
                   ),
                 ),
                 StandartButton(
                   action: () {
-                    presenter.update(
-                        presenter.nameField.text, presenter.roleField.text, id);
+                    if (presenter.nameField.text.isEmpty) {
+                      validate = false;
+                    } else if (presenter.roleField.text.isEmpty) {
+                      validate = false;
+                    } else {
+                      validate = true;
+                      presenter.update(presenter.nameField.text,
+                          presenter.roleField.text, id);
+                    }
                   },
                   text: 'Atualizar funcionário Funcionário',
                 ),

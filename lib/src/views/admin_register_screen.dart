@@ -64,6 +64,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                   placeholder: 'Nome de usuário',
                   controller: presenter.usernameField,
                   isPwd: false,
+                  errorTxt: null,
                 ),
               ),
               Padding(
@@ -72,6 +73,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                   placeholder: 'E-mail',
                   controller: presenter.emailField,
                   isPwd: false,
+                  errorTxt: null,
                 ),
               ),
               Padding(
@@ -80,6 +82,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                   placeholder: 'Senha',
                   controller: presenter.passwordField,
                   isPwd: true,
+                  errorTxt: null,
                 ),
               ),
               StandartButton(
