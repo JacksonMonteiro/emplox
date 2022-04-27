@@ -61,7 +61,10 @@ class _MainViewScreenState extends State<MainViewScreen>
                 Padding(
                   padding: const EdgeInsets.only(top: 24),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/', (Route<dynamic> route) => false);
+                    },
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Padding(
