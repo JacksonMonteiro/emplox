@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                         )),
                       ),
                       onPressed: () {
-                        Navigator.of(context).popAndPushNamed('/admin_login');
+                        Navigator.of(context).pushNamed('/admin_login');
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(21),

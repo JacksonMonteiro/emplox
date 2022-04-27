@@ -79,7 +79,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                 child: FormInput(
                   placeholder: 'Senha',
                   controller: presenter.passwordField,
-                  isPwd: false,
+                  isPwd: true,
                 ),
               ),
               StandartButton(
