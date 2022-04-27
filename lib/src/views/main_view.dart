@@ -15,9 +15,77 @@ class _MainViewScreenState extends State<MainViewScreen>
     implements MainScreenContract {
   late MainScreenPresenter presenter;
 
+  // Scaffold state
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: Container(
+          color: Color(0xFFEFEFEF),
+          child: Padding(
+            padding: const EdgeInsets.all(36),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Meu Perfil',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openEndDrawer();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)))),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 18, bottom: 18),
+                          child: Icon(Icons.arrow_back, color: Colors.white)),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 24),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 21, bottom: 21),
+                        child: Text('Sair',
+                            textAlign: TextAlign.center,
+                            style:
+                                TextStyle(fontSize: 24, color: Colors.white)),
+                      ),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ))),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       body: AnimatedBuilder(
         animation: presenter.state,
         builder: (context, child) =>
@@ -54,6 +122,22 @@ class _MainViewScreenState extends State<MainViewScreen>
           padding: EdgeInsets.only(top: 96, left: 30, right: 30),
           child: Column(
             children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: IconButton(
+                        onPressed: () {
+                          _scaffoldKey.currentState?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.menu,
+                          size: 32,
+                          color: Colors.blue,
+                        )),
+                  ),
+                ],
+              ),
               Text('Funcionários',
                   style: TextStyle(
                       color: Color(0xff07b0e5),
@@ -88,6 +172,22 @@ class _MainViewScreenState extends State<MainViewScreen>
           padding: EdgeInsets.only(top: 96, left: 30, right: 30),
           child: Column(
             children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: IconButton(
+                        onPressed: () {
+                          _scaffoldKey.currentState?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.menu,
+                          size: 32,
+                          color: Colors.blue,
+                        )),
+                  ),
+                ],
+              ),
               Text('Funcionários',
                   style: TextStyle(
                       color: Color(0xff07b0e5),
