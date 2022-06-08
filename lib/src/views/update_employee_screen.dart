@@ -1,7 +1,7 @@
 // ignore_for_file: no_logic_in_create_state
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 
 import '../components/form_input.dart';
 import '../components/return_button.dart';
@@ -68,7 +68,7 @@ class UpdateEmployeeScreenState extends State<UpdateEmployeeScreen>
                   padding: EdgeInsets.only(bottom: 37),
                   child: ReturnButton(),
                 ),
-                Text('update-employee-title'.i18n(),
+                Text('update-employee-title'.tr(),
                     style: const TextStyle(
                         fontSize: 24,
                         color: Color(0xFF07B0E5),
@@ -76,21 +76,21 @@ class UpdateEmployeeScreenState extends State<UpdateEmployeeScreen>
                 Padding(
                   padding: const EdgeInsets.only(bottom: 22),
                   child: FormInput(
-                    placeholder: 'employee-username-placeholder'.i18n(),
+                    placeholder: 'employee-username-placeholder'.tr(),
                     controller: presenter.nameField,
                     isPwd: false,
                     errorTxt: validate
                         ? null
-                        : 'employee-username-placeholder-error'.i18n(),
+                        : 'employee-username-placeholder-error'.tr(),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 22),
                   child: FormInput(
-                    placeholder: 'employee-role'.i18n(),
+                    placeholder: 'employee-role'.tr(),
                     controller: presenter.roleField,
                     isPwd: false,
-                    errorTxt: validate ? null : 'employee-role-error'.i18n(),
+                    errorTxt: validate ? null : 'employee-role-error'.tr(),
                   ),
                 ),
                 StandartButton(
@@ -105,7 +105,7 @@ class UpdateEmployeeScreenState extends State<UpdateEmployeeScreen>
                           presenter.roleField.text, id);
                     }
                   },
-                  text: 'update-employee-title'.i18n(),
+                  text: 'update-employee-title'.tr(),
                 ),
               ],
             ),
@@ -137,17 +137,17 @@ class UpdateEmployeeScreenState extends State<UpdateEmployeeScreen>
   @override
   error() {
     return AlertDialog(
-      title: Text('error'.i18n()),
+      title: Text('error'.tr()),
       content: SingleChildScrollView(
         child: ListBody(
           children: [
-            Text('update-employee-error'.i18n()),
+            Text('update-employee-error'.tr()),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('try-again'.i18n()),
+          child: Text('try-again'.tr()),
           onPressed: () {
             presenter.state.value = EUpdateState.start;
           },

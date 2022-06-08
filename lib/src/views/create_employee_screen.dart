@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:emplox/src/presenters/employee_register_presenter.dart';
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 
 import '../components/form_input.dart';
 import '../components/return_button.dart';
@@ -51,7 +51,7 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                 padding: EdgeInsets.only(bottom: 37),
                 child: ReturnButton(),
               ),
-              Text('create-employee'.i18n(),
+              Text('create-employee'.tr(),
                   style: const TextStyle(
                       fontSize: 24,
                       color: Color(0xFF07B0E5),
@@ -59,21 +59,21 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'employee-username-placeholder'.i18n(),
+                  placeholder: 'employee-username-placeholder'.tr(),
                   controller: presenter.nameField,
                   isPwd: false,
                   errorTxt: validate
                       ? null
-                      : 'employee-username-placeholder-error'.i18n(),
+                      : 'employee-username-placeholder-error'.tr(),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'employee-role'.i18n(),
+                  placeholder: 'employee-role'.tr(),
                   controller: presenter.roleField,
                   isPwd: false,
-                  errorTxt: validate ? null : 'employee-role-error'.i18n(),
+                  errorTxt: validate ? null : 'employee-role-error'.tr(),
                 ),
               ),
               StandartButton(
@@ -88,7 +88,7 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                         presenter.nameField.text, presenter.roleField.text);
                   }
                 },
-                text: 'create-employee'.i18n(),
+                text: 'create-employee'.tr(),
               ),
             ],
           ),
@@ -119,17 +119,17 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
   @override
   error() {
     return AlertDialog(
-      title: Text('error'.i18n()),
+      title: Text('error'.tr()),
       content: SingleChildScrollView(
         child: ListBody(
           children: [
-            Text('create-employee-error'.i18n()),
+            Text('create-employee-error'.tr()),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('try-again'.i18n()),
+          child: Text('try-again'.tr()),
           onPressed: () {
             presenter.state.value = ERegisterState.start;
           },

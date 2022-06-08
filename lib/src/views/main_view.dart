@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:emplox/src/presenters/main_screen_presenter.dart';
 import 'package:emplox/src/views/update_employee_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 
 class MainViewScreen extends StatefulWidget {
   const MainViewScreen({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _MainViewScreenState extends State<MainViewScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'my-profile'.i18n(),
+                      'my-profile'.tr(),
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
@@ -70,7 +70,7 @@ class _MainViewScreenState extends State<MainViewScreen>
                       width: MediaQuery.of(context).size.width,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 21, bottom: 21),
-                        child: Text('exit'.i18n(),
+                        child: Text('exit'.tr(),
                             textAlign: TextAlign.center,
                             style:
                                 TextStyle(fontSize: 24, color: Colors.white)),
@@ -142,17 +142,17 @@ class _MainViewScreenState extends State<MainViewScreen>
                   ),
                 ],
               ),
-              Text('main-screen-title'.i18n(),
+              Text('main-screen-title'.tr(),
                   style: TextStyle(
                       color: Color(0xff07b0e5),
                       fontWeight: FontWeight.w500,
                       fontSize: 24)),
-              Text('main-screen-subtitle'.i18n(),
+              Text('main-screen-subtitle'.tr(),
                   style:
                       TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
               Padding(
                 padding: const EdgeInsets.only(top: 81),
-                child: Text('main-screen-error'.i18n(),
+                child: Text('main-screen-error'.tr(),
                     style: TextStyle(
                         color: Color(0xff07b0e5),
                         fontWeight: FontWeight.w500,
@@ -191,12 +191,12 @@ class _MainViewScreenState extends State<MainViewScreen>
                   ),
                 ],
               ),
-              Text('main-screen-title'.i18n(),
+              Text('main-screen-title'.tr(),
                   style: TextStyle(
                       color: Color(0xff07b0e5),
                       fontWeight: FontWeight.w500,
                       fontSize: 24)),
-              Text('main-screen-subtitle'.i18n(),
+              Text('main-screen-subtitle'.tr(),
                   style:
                       TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
               SizedBox(

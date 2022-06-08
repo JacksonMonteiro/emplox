@@ -1,0 +1,41 @@
+{
+    "app-title": "EMPLOX",
+
+    "username-placeholder": "Username",
+    "password-placeholder": "Password",
+    "email-placeholder": "E-mail",
+    "login": "Login",
+    "register": "Register",
+
+    "error": "Error",
+    "login-error": "Incorrect username or password!",
+    "admin-register-error": "Error when registering as administrator",
+    "create-employee-error": "Error when registering employees in the system",
+    "employee-username-placeholder-error": "The employee's name cannot be empty",
+    "employee-role-error": "Employee role cannot be empty",
+    "main-screen-error": "Some problem occurred when trying to show users",
+    "update-employee-error": "Error when updating employee data",
+    "try-again": "Try again",
+
+    "create-employee": "Register employee",
+    "employee-username-placeholder": "Employee Name",
+    "employee-role": "Employee Role",
+
+    "login-screen-title": "Manage your employees with just a few touches",
+    "login-screen-subtitle": "Let's simplify the way you manage people",
+
+    "my-profile": "My Profile",
+    "exit": "Log out",
+
+    "main-screen-title": "Employees",
+    "main-screen-subtitle": "Click on the card to edit the employee",
+
+    "update-employee-title": "Update Employee",
+
+    "routes-admin-login-error": "Error when logging in: %s",
+    "routes-admin-register-error": "Error when registering administrator: %s",
+    "routes-employee-query-error": "Error when querying existing employees: %s",
+    "routes-employee-creation-error": "Error when registering employee: %s",
+    "routes-employee-update-error": "Error when updating employee: %s",
+    "routes-employee-delete-error": "Error when deleting employee: $s"
+}

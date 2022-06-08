@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:emplox/src/components/form_input.dart';
 import 'package:emplox/src/components/return_button.dart';
 import 'package:emplox/src/components/standart_button.dart';
 import 'package:emplox/src/presenters/login_screen_presenter.dart';
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 
 class AdminLoginScreen extends StatefulWidget {
   const AdminLoginScreen({Key? key}) : super(key: key);
@@ -52,7 +52,8 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
                     ReturnButton(),
                     Padding(
                       padding: const EdgeInsets.only(left: 24),
-                      child: Text('app-title'.i18n(), style: TextStyle(fontSize: 54)),
+                      child: Text('app-title', style: TextStyle(fontSize: 54))
+                          .tr(),
                     ),
                   ],
                 ),
@@ -60,7 +61,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'username-placeholder'.i18n(),
+                  placeholder: 'username-placeholder'.tr(),
                   controller: presenter.usernameField,
                   isPwd: false,
                   errorTxt: null,
@@ -69,7 +70,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 54),
                 child: FormInput(
-                  placeholder: 'password-placeholder'.i18n(),
+                  placeholder: 'password-placeholder'.tr(),
                   controller: presenter.passwordField,
                   isPwd: true,
                   errorTxt: null,
@@ -80,7 +81,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
                   presenter.login(presenter.usernameField.text,
                       presenter.passwordField.text);
                 },
-                text: 'login'.i18n(),
+                text: 'login'.tr(),
               ),
             ],
           ),
@@ -108,17 +109,17 @@ class _AdminLoginScreenState extends State<AdminLoginScreen>
   @override
   error() {
     return AlertDialog(
-      title: Text('error'.i18n()),
+      title: Text('error'.tr()),
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            Text('login-error'.i18n()),
+            Text('login-error'.tr()),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('try-again'.i18n()),
+          child: Text('try-again'.tr()),
           onPressed: () {
             presenter.state.value = LoginState.start;
           },

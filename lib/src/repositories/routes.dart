@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:localization/localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Routes {
   final String baseUrl = 'http://192.168.124.107:3000/';
@@ -16,7 +16,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("routes-admin-login-error".i18n(['$e']));
+      throw Exception("routes-admin-login-error".tr());
     }
   }
 
@@ -30,7 +30,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception('routes-admin-register-error'.i18n(['$e']));
+      throw Exception('routes-admin-register-error'.tr());
     }
   }
 
@@ -40,7 +40,7 @@ class Routes {
       var response = await dio.get(route);
       return response.data;
     } catch (e) {
-      throw Exception('routes-employee-query-error'.i18n(['$e']));
+      throw Exception('routes-employee-query-error'.tr());
     }
   }
 
@@ -54,7 +54,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception('routes-employee-creation-error'.i18n(['$e']));
+      throw Exception('routes-employee-creation-error'.tr());
     }
   }
 
@@ -68,7 +68,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("routes-employee-update-error".i18n(['$e']));
+      throw Exception("routes-employee-update-error".tr());
     }
   }
 
@@ -81,7 +81,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("routes-employee-delete-error".i18n());
+      throw Exception("routes-employee-delete-error".tr());
     }
   }
 }
