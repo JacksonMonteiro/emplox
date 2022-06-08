@@ -17,21 +17,46 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        context.setLocale(const Locale('pt', 'BR'));
-                      },
-                      child: const Text('pt_BR')),
-                  SizedBox(
-                    width: 20,
-                  ),
                   ElevatedButton(
                       onPressed: () {
                         context.setLocale(const Locale('en', 'US'));
                       },
-                      child: const Text('en_US')),
+                      child: IconButton(
+                        icon: const Icon(Icons.menu),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                    title: Text("Escolha o Idioma do App"),
+                                    actions: [
+                                      Row(children: [
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            context.setLocale(
+                                                const Locale('pt', 'BR'));
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('pt_BR'),
+                                        ),
+                                        const SizedBox(
+                                          width: 20,
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            context.setLocale(
+                                                const Locale('en', 'US'));
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('en_US'),
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
+                              barrierDismissible: true);
+                        },
+                      )),
                 ],
               ),
               Padding(
