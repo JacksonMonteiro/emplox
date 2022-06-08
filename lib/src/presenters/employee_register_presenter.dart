@@ -1,6 +1,4 @@
-import 'package:emplox/src/repositories/admin_repository.dart';
 import 'package:emplox/src/repositories/employee_repository.dart';
-import 'package:emplox/src/views/admin_register_screen.dart';
 import 'package:flutter/material.dart';
 
 abstract class EmployeeRegisterContract {
@@ -21,7 +19,7 @@ class EmployeeRegisterPresenter {
   bool isLoading = false;
 
   // Instances
-  EmployeeRepository _repository = EmployeeRepository();
+  final EmployeeRepository _repository = EmployeeRepository();
   TextEditingController nameField = TextEditingController();
   TextEditingController roleField = TextEditingController();
 

@@ -11,10 +11,10 @@ class ReturnButton extends StatelessWidget {
       },
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
+            const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(12)))),
       ),
-      child: Padding(
+      child: const Padding(
           padding: EdgeInsets.only(top: 18, bottom: 18),
           child: Icon(Icons.arrow_back, color: Colors.black)),
     );

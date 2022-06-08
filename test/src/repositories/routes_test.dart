@@ -1,5 +1,6 @@
+// ignore_for_file: avoid_print
+
 import 'package:emplox/src/repositories/admin_repository.dart';
-import 'package:emplox/src/repositories/routes.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 main() {

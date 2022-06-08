@@ -13,7 +13,7 @@ class LoginScreenPresenter {
   bool result = false;
   bool isLoading = false;
 
-  AdminRepository _repository = AdminRepository();
+  final AdminRepository _repository = AdminRepository();
 
   final state = ValueNotifier<LoginState>(LoginState.start);
   late final LoginScreenContract contract;

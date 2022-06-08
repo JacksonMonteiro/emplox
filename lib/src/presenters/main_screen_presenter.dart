@@ -18,7 +18,7 @@ class MainScreenPresenter {
   final deleteState = ValueNotifier<EDeleteState>(EDeleteState.start);
 
   List<EmployeeModel> employees = [];
-  EmployeeRepository _repository = EmployeeRepository();
+  final EmployeeRepository _repository = EmployeeRepository();
 
   // Constructor
   MainScreenPresenter(this.contract);
@@ -26,7 +26,7 @@ class MainScreenPresenter {
   start() async {
     try {
       employees = await _repository.fetchEmployees();
-      if (employees.length > 0) {
+      if (employees.isNotEmpty) {
         state.value = MainState.success;
       }
     } catch (e) {

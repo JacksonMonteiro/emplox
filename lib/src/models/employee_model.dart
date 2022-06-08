@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters
+
 class EmployeeModel {
   int? _id;
   String? _name;
@@ -5,13 +7,13 @@ class EmployeeModel {
 
   EmployeeModel({int? id, String? name, String? role}) {
     if (id != null) {
-      this._id = id;
+      _id = id;
     }
     if (name != null) {
-      this._name = name;
+      _name = name;
     }
     if (role != null) {
-      this._role = role;
+      _role = role;
     }
   }
 
@@ -29,10 +31,10 @@ class EmployeeModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this._id;
-    data['name'] = this._name;
-    data['role'] = this._role;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = _id;
+    data['name'] = _name;
+    data['role'] = _role;
     return data;
   }
 }

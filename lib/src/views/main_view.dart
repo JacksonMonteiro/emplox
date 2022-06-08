@@ -3,6 +3,7 @@
 import 'package:emplox/src/presenters/main_screen_presenter.dart';
 import 'package:emplox/src/views/update_employee_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class MainViewScreen extends StatefulWidget {
   const MainViewScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _MainViewScreenState extends State<MainViewScreen>
   late MainScreenPresenter presenter;
 
   // Scaffold state
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _MainViewScreenState extends State<MainViewScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Meu Perfil',
+                      'my-profile'.i18n(),
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
@@ -69,7 +70,7 @@ class _MainViewScreenState extends State<MainViewScreen>
                       width: MediaQuery.of(context).size.width,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 21, bottom: 21),
-                        child: Text('Sair',
+                        child: Text('exit'.i18n(),
                             textAlign: TextAlign.center,
                             style:
                                 TextStyle(fontSize: 24, color: Colors.white)),
@@ -141,18 +142,17 @@ class _MainViewScreenState extends State<MainViewScreen>
                   ),
                 ],
               ),
-              Text('Funcionários',
+              Text('main-screen-title'.i18n(),
                   style: TextStyle(
                       color: Color(0xff07b0e5),
                       fontWeight: FontWeight.w500,
                       fontSize: 24)),
-              Text('Clique no card para editar o usuário',
+              Text('main-screen-subtitle'.i18n(),
                   style:
                       TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
               Padding(
                 padding: const EdgeInsets.only(top: 81),
-                child: Text(
-                    'Ocorreu alguma problema ao tentar mostrar os usuários',
+                child: Text('main-screen-error'.i18n(),
                     style: TextStyle(
                         color: Color(0xff07b0e5),
                         fontWeight: FontWeight.w500,
@@ -172,7 +172,7 @@ class _MainViewScreenState extends State<MainViewScreen>
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding: EdgeInsets.only(top: 96, left: 30, right: 30),
+          padding: EdgeInsets.only(top: 50, left: 30, right: 30),
           child: Column(
             children: [
               Row(
@@ -191,86 +191,93 @@ class _MainViewScreenState extends State<MainViewScreen>
                   ),
                 ],
               ),
-              Text('Funcionários',
+              Text('main-screen-title'.i18n(),
                   style: TextStyle(
                       color: Color(0xff07b0e5),
                       fontWeight: FontWeight.w500,
                       fontSize: 24)),
-              Text('Clique no card para editar o usuário',
+              Text('main-screen-subtitle'.i18n(),
                   style:
                       TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
-              ListView.builder(
-                  itemCount: presenter.employees.length,
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    var employee = presenter.employees[index];
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: presenter.employees.length,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      var employee = presenter.employees[index];
 
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => updateEmployeeScreen(
-                                  employeeId: employee.id)),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: Container(
-                          width: 300,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(12)),
-                            color: Color(0xFFEFEFEF),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 24, right: 24),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            employee.name.toString(),
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 22,
-                                                color: Color(0xFF07B0E5)),
-                                          ),
-                                          Text(
-                                            employee.role.toString(),
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 16,
-                                                color: Colors.black),
-                                          )
-                                        ]),
-                                    GestureDetector(
-                                      onTap: () {
-                                        presenter.delete(employee.id);
-                                      },
-                                      child: Icon(
-                                        Icons.delete_rounded,
-                                        color: Colors.red,
-                                        size: 48,
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UpdateEmployeeScreen(
+                                    employeeId: employee.id)),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)),
+                              color: Color(0xFFEFEFEF),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 24, right: 24),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              employee.name.toString(),
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 22,
+                                                  color: Color(0xFF07B0E5)),
+                                            ),
+                                            Text(
+                                              employee.role.toString(),
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            )
+                                          ]),
+                                      GestureDetector(
+                                        onTap: () {
+                                          presenter.delete(employee.id);
+                                        },
+                                        child: Icon(
+                                          Icons.delete_rounded,
+                                          color: Colors.red,
+                                          size: 48,
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+              ),
             ],
           ),
         ),

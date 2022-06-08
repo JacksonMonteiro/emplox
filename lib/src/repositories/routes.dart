@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:localization/localization.dart';
 
 class Routes {
   final String baseUrl = 'http://192.168.124.107:3000/';
@@ -15,7 +16,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao realizar login: $e");
+      throw Exception("routes-admin-login-error".i18n(['$e']));
     }
   }
 
@@ -29,7 +30,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao cadastrar administrador: $e");
+      throw Exception('routes-admin-register-error'.i18n(['$e']));
     }
   }
 
@@ -39,7 +40,7 @@ class Routes {
       var response = await dio.get(route);
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao consultar funcionários existentes: $e");
+      throw Exception('routes-employee-query-error'.i18n(['$e']));
     }
   }
 
@@ -53,7 +54,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao cadastrar funcionário: $e");
+      throw Exception('routes-employee-creation-error'.i18n(['$e']));
     }
   }
 
@@ -67,7 +68,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao atualizar funcionário: $e");
+      throw Exception("routes-employee-update-error".i18n(['$e']));
     }
   }
 
@@ -80,7 +81,7 @@ class Routes {
           ));
       return response.data;
     } catch (e) {
-      throw Exception("Erro ao deletar funcionário: $e");
+      throw Exception("routes-employee-delete-error".i18n());
     }
   }
 }

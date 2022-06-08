@@ -19,7 +19,7 @@ class EmployeeUpdatePresenter {
   bool isLoading = false;
 
   // Instances
-  EmployeeRepository _repository = EmployeeRepository();
+  final EmployeeRepository _repository = EmployeeRepository();
   TextEditingController nameField = TextEditingController();
   TextEditingController roleField = TextEditingController();
 

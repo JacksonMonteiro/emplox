@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters
+
 class AdminModel {
   int? _id;
   String? _username;
@@ -6,16 +8,16 @@ class AdminModel {
 
   AdminModel({int? id, String? username, String? email, String? password}) {
     if (id != null) {
-      this._id = id;
+      _id = id;
     }
     if (username != null) {
-      this._username = username;
+      _username = username;
     }
     if (email != null) {
-      this._email = email;
+      _email = email;
     }
     if (password != null) {
-      this._password = password;
+      _password = password;
     }
   }
 
@@ -36,11 +38,11 @@ class AdminModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this._id;
-    data['username'] = this._username;
-    data['email'] = this._email;
-    data['password'] = this._password;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = _id;
+    data['username'] = _username;
+    data['email'] = _email;
+    data['password'] = _password;
     return data;
   }
 }

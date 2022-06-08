@@ -1,6 +1,6 @@
 import 'package:emplox/src/presenters/employee_register_presenter.dart';
-import 'package:emplox/src/presenters/main_screen_presenter.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import '../components/form_input.dart';
 import '../components/return_button.dart';
@@ -42,39 +42,38 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding: EdgeInsets.only(top: 102, bottom: 126, left: 40, right: 40),
+          padding:
+              const EdgeInsets.only(top: 102, bottom: 126, left: 40, right: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 37),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 37),
                 child: ReturnButton(),
               ),
-              Text('Cadastrar funcionário',
-                  style: TextStyle(
+              Text('create-employee'.i18n(),
+                  style: const TextStyle(
                       fontSize: 24,
                       color: Color(0xFF07B0E5),
                       fontWeight: FontWeight.w500)),
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'Nome do funcionário',
+                  placeholder: 'employee-username-placeholder'.i18n(),
                   controller: presenter.nameField,
                   isPwd: false,
                   errorTxt: validate
                       ? null
-                      : 'Nome do funcionário não pode estar vazio',
+                      : 'employee-username-placeholder-error'.i18n(),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'Função do funcionário',
+                  placeholder: 'employee-role'.i18n(),
                   controller: presenter.roleField,
                   isPwd: false,
-                  errorTxt: validate
-                      ? null
-                      : 'Função do funcionário não pode estar vazia',
+                  errorTxt: validate ? null : 'employee-role-error'.i18n(),
                 ),
               ),
               StandartButton(
@@ -89,7 +88,7 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
                         presenter.nameField.text, presenter.roleField.text);
                   }
                 },
-                text: 'Cadastrar Funcionário',
+                text: 'create-employee'.i18n(),
               ),
             ],
           ),
@@ -101,7 +100,9 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
   @override
   loading() {
     return Center(
-        child: presenter.isLoading ? CircularProgressIndicator() : Container());
+        child: presenter.isLoading
+            ? const CircularProgressIndicator()
+            : Container());
   }
 
   @override
@@ -118,17 +119,17 @@ class _CreateEmployeeScreenState extends State<CreateEmployeeScreen>
   @override
   error() {
     return AlertDialog(
-      title: Text('Erro'),
+      title: Text('error'.i18n()),
       content: SingleChildScrollView(
         child: ListBody(
-          children: <Widget>[
-            Text('Erro ao cadastrar funcinário no sistema'),
+          children: [
+            Text('create-employee-error'.i18n()),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: const Text('Tentar novamente'),
+          child: Text('try-again'.i18n()),
           onPressed: () {
             presenter.state.value = ERegisterState.start;
           },

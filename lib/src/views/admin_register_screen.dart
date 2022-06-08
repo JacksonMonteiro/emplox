@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
 // ignore: prefer_const_literals_to_create_immutables
 
 import 'package:emplox/src/presenters/admin_register_presenter.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import '../components/form_input.dart';
 import '../components/return_button.dart';
@@ -53,7 +54,8 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                     ReturnButton(),
                     Padding(
                       padding: const EdgeInsets.only(left: 24),
-                      child: Text('EMPLOX', style: TextStyle(fontSize: 54)),
+                      child: Text('app-title'.i18n(),
+                          style: TextStyle(fontSize: 54)),
                     ),
                   ],
                 ),
@@ -61,7 +63,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'Nome de usuário',
+                  placeholder: 'username-placeholder'.i18n(),
                   controller: presenter.usernameField,
                   isPwd: false,
                   errorTxt: null,
@@ -70,7 +72,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 22),
                 child: FormInput(
-                  placeholder: 'E-mail',
+                  placeholder: 'email-placeholder'.i18n(),
                   controller: presenter.emailField,
                   isPwd: false,
                   errorTxt: null,
@@ -79,7 +81,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
               Padding(
                 padding: const EdgeInsets.only(bottom: 54),
                 child: FormInput(
-                  placeholder: 'Senha',
+                  placeholder: 'password-placeholder'.i18n(),
                   controller: presenter.passwordField,
                   isPwd: true,
                   errorTxt: null,
@@ -90,7 +92,7 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
                   presenter.register(presenter.usernameField.text,
                       presenter.emailField.text, presenter.passwordField.text);
                 },
-                text: 'Registrar-se',
+                text: 'register'.i18n(),
               ),
             ],
           ),
@@ -118,17 +120,17 @@ class _AdminRegisterScreenState extends State<AdminRegisterScreen>
   @override
   error() {
     return AlertDialog(
-      title: Text('Erro'),
+      title: Text('error'.i18n()),
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            Text('Erro ao cadastrar-se como administrador'),
+            Text('admin-register-error'.i18n()),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: const Text('Tentar novamente'),
+          child: Text('try-again'.i18n()),
           onPressed: () {
             presenter.state.value = RegisterState.start;
           },

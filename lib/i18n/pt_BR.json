@@ -1,0 +1,41 @@
+{
+    "app-title": "EMPLOX",
+
+    "username-placeholder": "Nome de usuário",
+    "password-placeholder": "Senha",
+    "email-placeholder": "E-mail",
+    "login": "Entrar",
+    "register": "Registre-se",
+
+    "error": "Erro",
+    "login-error": "Usuário ou senha incorretos!",
+    "admin-register-error": "Erro ao cadastrar-se como administrador",
+    "create-employee-error": "Erro ao cadastrar funcinário no sistema",
+    "employee-username-placeholder-error": "O nome do funcionário não pode estar vazio",
+    "employee-role-error": "Função do funcionário não pode estar vazia",
+    "main-screen-error": "Ocorreu alguma problema ao tentar mostrar os usuários",
+    "update-employee-error": "Erro ao atualizar dados do funcionário",
+    "try-again": "Tentar novamente",
+
+    "create-employee": "Cadastrar funcionário",
+    "employee-username-placeholder": "Nome de funcionário",
+    "employee-role": "Função do funcionário",
+
+    "login-screen-title": "Gerencie seus funcionários com apenas alguns toques",
+    "login-screen-subtitle": "Vamos simplificar o seu jeito de gerenciar pessoas",
+
+    "my-profile": "Meu perfil",
+    "exit": "Sair",
+
+    "main-screen-title": "Funcionários",
+    "main-screen-subtitle": "Clique no card para editar o usuário",
+
+    "update-employee-title": "Atualizar funcionário",
+
+    "routes-admin-login-error": "Erro ao realizar login: %s",
+    "routes-admin-register-error": "Erro ao cadastrar administrador: %s",
+    "routes-employee-query-error": "Erro ao consultar funcionários existentes: %s",
+    "routes-employee-creation-error": "Erro ao cadastrar funcionário: %s",
+    "routes-employee-update-error": "Erro ao atualizar funcionário: %s",
+    "routes-employee-delete-error": "Erro ao deletar funcionário: $s"
+}

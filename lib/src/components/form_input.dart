@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FormInput extends StatelessWidget {
-  FormInput(
+  const FormInput(
       {Key? key,
       required this.placeholder,
       required this.controller,
@@ -19,14 +19,14 @@ class FormInput extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: TextFormField(
-        controller: this.controller,
+        controller: controller,
         obscureText: isPwd,
         decoration: InputDecoration(
             hintText: placeholder,
             errorText: errorTxt,
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: Color(0xFF07B0E5))),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: Color(0xFF07b0e5)))),
       ),
     );

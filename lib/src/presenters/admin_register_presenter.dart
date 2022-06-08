@@ -1,5 +1,4 @@
 import 'package:emplox/src/repositories/admin_repository.dart';
-import 'package:emplox/src/views/admin_register_screen.dart';
 import 'package:flutter/material.dart';
 
 abstract class AdminRegisterContract {
@@ -20,7 +19,7 @@ class AdminRegisterPresenter {
   bool isLoading = false;
 
   // Instances
-  AdminRepository _repository = AdminRepository();
+  final AdminRepository _repository = AdminRepository();
   TextEditingController usernameField = TextEditingController();
   TextEditingController emailField = TextEditingController();
   TextEditingController passwordField = TextEditingController();
