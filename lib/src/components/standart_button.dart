@@ -20,10 +20,12 @@ class StandartButton extends StatelessWidget {
         ),
       ),
       style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all<Color>(const Color(0xFF07B0E5)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-      ))),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+          ))),
     );
   }
 }

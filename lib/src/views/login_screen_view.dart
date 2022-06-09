@@ -89,13 +89,15 @@ class LoginScreen extends StatelessWidget {
                         Navigator.of(context).pushNamed('/admin_register');
                       },
                       style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF07B0E5)),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(12),
-                                bottomLeft: Radius.circular(12))),
-                      )),
+                            const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12),
+                                    bottomLeft: Radius.circular(12))),
+                          )),
                       child: Padding(
                         padding: const EdgeInsets.all(21),
                         child: Text(

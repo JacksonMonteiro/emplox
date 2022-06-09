@@ -4,8 +4,6 @@ import 'package:emplox/src/views/create_employee_screen.dart';
 import 'package:emplox/src/views/login_screen_view.dart';
 import 'package:emplox/src/views/main_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-// import 'package:localization/localization.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
@@ -31,9 +29,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'app-title'.tr(),
       theme: ThemeData(
-          fontFamily: 'Tomorrow',
-          primarySwatch: Colors.blue,
-          brightness: Brightness.dark),
+        useMaterial3: true,
+        fontFamily: 'Tomorrow',
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF07B0E5), brightness: Brightness.dark),
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),

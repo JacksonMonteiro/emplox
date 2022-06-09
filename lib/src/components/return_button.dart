@@ -10,6 +10,8 @@ class ReturnButton extends StatelessWidget {
         Navigator.of(context).pop();
       },
       style: ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all<Color>(const Color(0xFF07B0E5)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(12)))),
