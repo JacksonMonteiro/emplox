@@ -37,5 +37,9 @@
     "routes-employee-query-error": "Error when querying existing employees: %s",
     "routes-employee-creation-error": "Error when registering employee: %s",
     "routes-employee-update-error": "Error when updating employee: %s",
-    "routes-employee-delete-error": "Error when deleting employee: $s"
+    "routes-employee-delete-error": "Error when deleting employee: $s",
+
+    "choose-language": "Choose app language",
+    "pt-br": "Brazilian Portuguese",
+    "en-us": "English (United States)"
 }

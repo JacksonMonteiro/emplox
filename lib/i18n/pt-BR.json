@@ -37,5 +37,9 @@
     "routes-employee-query-error": "Erro ao consultar funcionários existentes: %s",
     "routes-employee-creation-error": "Erro ao cadastrar funcionário: %s",
     "routes-employee-update-error": "Erro ao atualizar funcionário: %s",
-    "routes-employee-delete-error": "Erro ao deletar funcionário: $s"
+    "routes-employee-delete-error": "Erro ao deletar funcionário: $s",
+
+    "choose-language": "Escolha o Idioma do App",
+    "pt-br": "Portguês do Brasil",
+    "en-us": "Inglês (Estados Unidos)"
 }

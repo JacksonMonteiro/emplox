@@ -19,52 +19,54 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        context.setLocale(const Locale('en', 'US'));
-                      },
-                      child: IconButton(
+                  SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: IconButton(
                         icon: const Icon(Icons.menu),
                         onPressed: () {
                           showDialog(
                               context: context,
                               builder: (_) => AlertDialog(
-                                    title: Text("Escolha o Idioma do App"),
+                                    title: Text("choose-language".tr()),
                                     actions: [
-                                      Row(children: [
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            context.setLocale(
-                                                const Locale('pt', 'BR'));
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('pt_BR'),
-                                        ),
-                                        const SizedBox(
-                                          width: 20,
-                                        ),
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            context.setLocale(
-                                                const Locale('en', 'US'));
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('en_US'),
-                                        ),
-                                      ]),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        child: Column(children: [
+                                          ElevatedButton(
+                                            onPressed: () {
+                                              context.setLocale(
+                                                  const Locale('pt', 'BR'));
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('pt-br'.tr()),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          ElevatedButton(
+                                            onPressed: () {
+                                              context.setLocale(
+                                                  const Locale('en', 'US'));
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('en-us'.tr()),
+                                          ),
+                                        ]),
+                                      ),
                                     ],
                                   ),
                               barrierDismissible: true);
-                        },
-                      )),
+                        }),
+                  ),
                 ],
               ),
+              const SizedBox(height: 24),
               Padding(
                 padding: const EdgeInsets.only(bottom: 41),
                 child: Text(
                   'login-screen-title'.tr(),
                   style: const TextStyle(
-                      fontSize: 32, color: Color.fromRGBO(7, 176, 229, 1)),
+                      fontSize: 21, color: Color.fromRGBO(7, 176, 229, 1)),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -74,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                   width: 300,
                   child: Text(
                     'login-screen-subtitle'.tr(),
-                    style: const TextStyle(fontSize: 24, color: Colors.white70),
+                    style: const TextStyle(fontSize: 21, color: Colors.white70),
                     textAlign: TextAlign.center,
                   ),
                 ),
